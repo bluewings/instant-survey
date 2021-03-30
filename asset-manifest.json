@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/instant-survey/static/css/main.deec62d1.chunk.css",
+    "main.css": "/instant-survey/static/css/main.224efbab.chunk.css",
     "main.js": "/instant-survey/static/js/main.a093c8c3.chunk.js",
     "main.js.map": "/instant-survey/static/js/main.a093c8c3.chunk.js.map",
     "runtime-main.js": "/instant-survey/static/js/runtime-main.7803b7fa.js",
@@ -12,14 +12,14 @@
     "static/js/3.75fb748e.chunk.js.map": "/instant-survey/static/js/3.75fb748e.chunk.js.map",
     "index.html": "/instant-survey/index.html",
     "static/css/2.ea2d357b.chunk.css.map": "/instant-survey/static/css/2.ea2d357b.chunk.css.map",
-    "static/css/main.deec62d1.chunk.css.map": "/instant-survey/static/css/main.deec62d1.chunk.css.map",
+    "static/css/main.224efbab.chunk.css.map": "/instant-survey/static/css/main.224efbab.chunk.css.map",
     "static/js/2.8ce3bf0c.chunk.js.LICENSE.txt": "/instant-survey/static/js/2.8ce3bf0c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7803b7fa.js",
     "static/css/2.ea2d357b.chunk.css",
     "static/js/2.8ce3bf0c.chunk.js",
-    "static/css/main.deec62d1.chunk.css",
+    "static/css/main.224efbab.chunk.css",
     "static/js/main.a093c8c3.chunk.js"
   ]
 }
