@@ -1,0 +1,14 @@
+.root {
+  :global(.ant-input-group-wrapper) {
+    margin-bottom: 0.5rem;  
+  }
+  :global(.ant-input-group-addon) {
+    font-family: 'Montserrat', sans-serif;
+    width: 2.5rem;
+    padding: 0;
+  }
+  .item {
+    padding-left: 1.25rem;
+  }
+}
+

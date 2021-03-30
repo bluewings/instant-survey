@@ -1,0 +1,23 @@
+.root {
+  font-family: 'Montserrat', 'Gothic A1', sans-serif;
+  .title {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .answers {
+    position: relative;
+  }
+}
+
+.input_wrap {
+  display: flex;
+  input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  button {
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
