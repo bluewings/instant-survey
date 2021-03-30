@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/instant-survey/static/css/main.deec62d1.chunk.css",
-    "main.js": "/instant-survey/static/js/main.3b148f81.chunk.js",
-    "main.js.map": "/instant-survey/static/js/main.3b148f81.chunk.js.map",
+    "main.js": "/instant-survey/static/js/main.a093c8c3.chunk.js",
+    "main.js.map": "/instant-survey/static/js/main.a093c8c3.chunk.js.map",
     "runtime-main.js": "/instant-survey/static/js/runtime-main.7803b7fa.js",
     "runtime-main.js.map": "/instant-survey/static/js/runtime-main.7803b7fa.js.map",
     "static/css/2.ea2d357b.chunk.css": "/instant-survey/static/css/2.ea2d357b.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.ea2d357b.chunk.css",
     "static/js/2.8ce3bf0c.chunk.js",
     "static/css/main.deec62d1.chunk.css",
-    "static/js/main.3b148f81.chunk.js"
+    "static/js/main.a093c8c3.chunk.js"
   ]
 }
