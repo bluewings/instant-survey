@@ -13,7 +13,7 @@ function Main() {
         <Popover destroyTooltipOnHide placement="bottomRight" content={<SiteUrlQrCode />} trigger="click">
           <Button type="link" className={styles.qrcode}><i className="material-icons">qr_code_2</i></Button>
         </Popover>
-        {window.location.search && (
+        {window.location.search.match(/admin/) && (
           <Popover destroyTooltipOnHide placement="topRight" content={<AddSurvey />} trigger="click">
             <Button type="link" className={styles.cog}><i className="material-icons">settings</i></Button>
           </Popover>

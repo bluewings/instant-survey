@@ -11,7 +11,7 @@ import styles from './InstantSurvey.module.scss';
 const GUTTER = 10;
 
 function InstantSurvey() {
-  const { question, answers, responses, myAnswer, selectAnswer, submitNewAnswer } = useSurvey();
+  const { question, answers, responses, myAnswer, selectAnswer, removeAnswer, submitNewAnswer } = useSurvey();
 
   const [newAnswer, setNewAnswer] = useState('');
   const disabled = !newAnswer || Object.values(answers || {}).includes(newAnswer);
@@ -86,7 +86,10 @@ function InstantSurvey() {
             const handleClick = () => {
               selectAnswer(data.answer);
             };
-            return <Answer key={i} data={data} onClick={handleClick} />;
+            const handleRemove = () => {
+              removeAnswer(data.answer);
+            };
+            return <Answer key={i} data={data} onClick={handleClick} onRemove={handleRemove} />;
           })}
         </div>
         <form onSubmit={handleSubmit}>
@@ -139,5 +142,10 @@ function useSurvey() {
     ]);
   }, [database, myId]);
 
-  return useMemo(() => ({ ...survey, myId, myAnswer, selectAnswer, submitNewAnswer }), [survey, myId, myAnswer, selectAnswer, submitNewAnswer]);
+  const removeAnswer = useCallback((answer: string) => {
+    const answers = Object.values(survey?.answers || {});
+    database?.ref('/current-survey/answers').set(answers.filter(e => e !== answer));
+  }, [database, survey]);
+
+  return useMemo(() => ({ ...survey, myId, myAnswer, selectAnswer, submitNewAnswer, removeAnswer }), [survey, myId, myAnswer, selectAnswer, submitNewAnswer, removeAnswer]);
 }
