@@ -3,6 +3,13 @@
   // padding: 10px;
 }
 
+.qrcode {
+  position: fixed;
+  z-index: 1;
+  top: 2rem;
+  right: 2rem;  
+}
+
 .cog {
   position: fixed;
   z-index: 1;

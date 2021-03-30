@@ -22,11 +22,12 @@ function InstantSurvey() {
   const handleSubmit: any = async (event: any) => {
     event.preventDefault();
     submitNewAnswer(newAnswer);
+    setNewAnswer('');
     setTick(state => state + 1);
   };
 
   const answersHeight = useRecoilValue(answersHeightState);
-  const [items, height] = useMemo(() => {
+  const [items, totalCount, height] = useMemo(() => {
     const _answers = Object.values(answers || {});
 
     let totalCount = 0;
@@ -62,6 +63,7 @@ function InstantSurvey() {
 
     return [
       _answers.map((answer: any) => ({ answer, ...answerDict[answer], })),
+      totalCount,
       totalHeight,
     ];
   }, [myAnswer, answers, responses, answersHeight]);
@@ -74,30 +76,33 @@ function InstantSurvey() {
 
   return (
     <div className={styles.root} ref={measure}>
-      <h1 className={styles.title}>
-        <WordBreak text={question} />
-      </h1>
-      <div className={styles.answers} style={{ height }}>
-        {items.map((data: any, i) => {
-          const handleClick = () => {
-            selectAnswer(data.answer);
-          };
-          return <Answer key={i} data={data} onClick={handleClick} />;
-        })}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.input_wrap}>
-          <Input
-            key={tick}
-            type="text"
-            size="large"
-            onChange={handleChange}
-            placeholder="추가 의견을 남겨주세요."
-            allowClear
-          />
-          <Button size="large" type="primary" htmlType="submit" disabled={disabled}>확인</Button>
+      <div className={styles.inner}>
+        <h1 className={styles.title}>
+          <WordBreak text={question} />
+        </h1>
+        <div className={styles.total_count}>전체 {totalCount}명</div>
+        <div className={styles.answers} style={{ height }}>
+          {items.map((data: any, i) => {
+            const handleClick = () => {
+              selectAnswer(data.answer);
+            };
+            return <Answer key={i} data={data} onClick={handleClick} />;
+          })}
         </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.input_wrap}>
+            <Input
+              key={tick}
+              type="text"
+              size="large"
+              onChange={handleChange}
+              placeholder="추가 의견을 남겨주세요."
+              allowClear
+            />
+            <Button size="large" type="primary" htmlType="submit" disabled={disabled}>확인</Button>
+          </div>
+        </form>
+      </div>
     </div >
   );
 }

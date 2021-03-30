@@ -38,51 +38,54 @@ function AddSurvey(props: IAddSurveyProps) {
       .filter((e, i, arr) => arr.indexOf(e) === i),
   }), [question, answers]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
     await database?.ref('/current-survey').set({
       ...survey,
       createdAt: (new Date()).toISOString(),
     });
-  }
+  };
 
   return (
     <div className={styles.root}>
-      <Input
-        type="text"
-        onChange={handleQuestionChange}
-        addonBefore="Q"
-        size="large"
-      />
-      {items.map((item, i) => {
-        const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-          setAnswers(values => [
-            ...values.slice(0, i),
-            { seq: item.seq, value: event.target.value.trim() },
-            ...values.slice(i + 1),
-          ]);
-        };
-        return (
-          <div key={item.seq}>
-            <Input.Group compact>
-              <Input
-                type="text"
-                onChange={handleAnswerChange}
-                addonBefore={i + 1}
-                size="large"
-              />
-            </Input.Group>
-          </div>
-        )
-      })}
-      <Button
-        type="primary"
-        size="large"
-        onClick={handleSubmit}
-        disabled={!(survey.question && survey.answers.length > 1)}
-        block
-      >
-        submit
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          onChange={handleQuestionChange}
+          addonBefore="Q"
+          size="large"
+        />
+        {items.map((item, i) => {
+          const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
+            setAnswers(values => [
+              ...values.slice(0, i),
+              { seq: item.seq, value: event.target.value.trim() },
+              ...values.slice(i + 1),
+            ]);
+          };
+          return (
+            <div key={item.seq}>
+              <Input.Group compact>
+                <Input
+                  type="text"
+                  onChange={handleAnswerChange}
+                  addonBefore={i + 1}
+                  size="large"
+                />
+              </Input.Group>
+            </div>
+          )
+        })}
+        <Button
+          type="primary"
+          size="large"
+          htmlType="submit"
+          disabled={!(survey.question && survey.answers.length > 1)}
+          block
+        >
+          submit
       </Button>
+      </form>
     </div>
   );
 }

@@ -1,11 +1,27 @@
 .root {
+  min-height: 90vh;
   font-family: 'Montserrat', 'Gothic A1', sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  justify-content: stretch;
+  .inner {
+    position: relative;
+    width: 100%;
+  }
   .title {
-    margin: 2rem 0;
+    margin: 0 0 1rem 0;
     text-align: center;
   }
   .answers {
     position: relative;
+  }
+  .total_count {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    pointer-events: none;
+    margin-bottom: 0.25rem;
   }
 }
 
