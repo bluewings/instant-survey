@@ -11,7 +11,7 @@ import styles from './InstantSurvey.module.scss';
 const GUTTER = 10;
 
 function InstantSurvey() {
-  const { question, answers, responses, myAnswer, selectAnswer, removeAnswer, submitNewAnswer } = useSurvey();
+  const { question, answers, responses, myAnswer, selectAnswer, submitNewAnswer } = useSurvey();
 
   const [newAnswer, setNewAnswer] = useState('');
   const disabled = !newAnswer || Object.values(answers || {}).includes(newAnswer);
@@ -87,7 +87,7 @@ function InstantSurvey() {
               selectAnswer(data.answer);
             };
             const handleRemove = () => {
-              removeAnswer(data.answer);
+              // removeAnswer(data.answer);
             };
             return <Answer key={i} data={data} onClick={handleClick} onRemove={handleRemove} />;
           })}
